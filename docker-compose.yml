@@ -1,0 +1,25 @@
+version: "3.2"
+services:
+  debug:
+    container_name: debug-build
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: debug
+        PHP_VERSION: 81
+        DEBUG_PACKAGES: nano bash net-tools wget
+    # command: "bash"
+    ports:
+      - "8080:8080"
+
+  prod:
+    container_name: test-build
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - BUILD_ENV=production
+        - PHP_VERSION=7
+    ports:
+      - "8080:8080"

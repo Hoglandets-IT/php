@@ -1,0 +1,93 @@
+version: "3.2"
+services:
+  php74-debug:
+    container_name: php7.4-debug
+    image: php:7.4-debug
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: debug
+        ALPINE_VERSION: 3.17
+        PHP_VERSION: 7
+        DEBUG_PACKAGES: nano bash net-tools wget
+  
+  php74:
+    container_name: php7.4
+    image: php:7.4
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: production
+        ALPINE_VERSION: 3.17
+        PHP_VERSION: 7
+
+  php8-debug:
+    container_name: php80-debug
+    image: php:8.0-debug
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: debug
+        ALPINE_VERSION: 3.17
+        PHP_VERSION: 8
+        DEBUG_PACKAGES: nano bash net-tools wget mariadb-client
+  
+  php8:
+    container_name: php80
+    image: php:8.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: production
+        ALPINE_VERSION: 3.17
+        PHP_VERSION: 8
+  
+  php81-debug:
+    container_name: php81-debug
+    image: php:8.1-debug
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: debug
+        ALPINE_VERSION: 3.17
+        PHP_VERSION: 81
+        DEBUG_PACKAGES: nano bash net-tools wget
+  
+  php81:
+    container_name: php81
+    image: php:8.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: production
+        ALPINE_VERSION: 3.17
+        PHP_VERSION: 81
+  
+  php82-debug:
+    container_name: php82-debug
+    image: php:8.2-debug
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: debug
+        ALPINE_VERSION: 3.17
+        PHP_VERSION: 82
+        DEBUG_PACKAGES: nano bash net-tools wget
+  
+  php82:
+    container_name: php82
+    image: php:8.2
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: production
+        ALPINE_VERSION: 3.17
+        PHP_VERSION: 82
